@@ -23,7 +23,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/vendor.css",
+              "src/assets/theme.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
