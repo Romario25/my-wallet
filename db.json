@@ -5,6 +5,36 @@
       "email": "wfm@mail.ru",
       "password": "12345678",
       "name": "Администратор"
+    },
+    {
+      "email": "superadmin@moodstories.dk",
+      "passsword": "12345678",
+      "name": "first region",
+      "id": 2
+    },
+    {
+      "email": "elc@moodstories.dk",
+      "passsword": "dsdsdsds",
+      "name": "dsd",
+      "id": 3
+    },
+    {
+      "email": "elc@moodstories.dk",
+      "passsword": "12345678",
+      "name": "first region",
+      "id": 4
+    },
+    {
+      "email": "superadmin@moodstories.dk",
+      "passsword": "dsadasdasda",
+      "name": "first region",
+      "id": 5
+    },
+    {
+      "email": "elc@moodstories.dk",
+      "passsword": "fdsfdsfsdf",
+      "name": "first region",
+      "id": 6
     }
   ],
   "bill": {
