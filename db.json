@@ -38,12 +38,12 @@
     }
   ],
   "bill": {
-    "value": 100000,
-    "currency": "RUB"
+    "value": "99800",
+    "currency": "uah"
   },
   "categories": [
     {
-      "name": "Дом",
+      "name": "Машина",
       "capacity": 15000,
       "id": 1
     },
@@ -56,6 +56,21 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
+    },
+    {
+      "name": "новая ред",
+      "capacity": 1123111,
+      "id": 4
+    },
+    {
+      "name": "новая 2",
+      "capacity": 1234,
+      "id": 5
+    },
+    {
+      "name": "новая 3",
+      "capacity": 1000,
+      "id": 6
     }
   ],
   "events": [
@@ -98,6 +113,46 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "outcome",
+      "amount": 100,
+      "category": 2,
+      "date": "Sun Mar 03 2019",
+      "description": "тест",
+      "id": 6
+    },
+    {
+      "type": "outcome",
+      "amount": 100,
+      "category": 2,
+      "date": "Sun Mar 03 2019",
+      "description": "тест",
+      "id": 7
+    },
+    {
+      "type": "outcome",
+      "amount": 100,
+      "category": 2,
+      "date": "Sun Mar 03 2019",
+      "description": "тест",
+      "id": 8
+    },
+    {
+      "type": "outcome",
+      "amount": 100,
+      "category": 2,
+      "date": "Sun Mar 03 2019",
+      "description": "тест",
+      "id": 9
+    },
+    {
+      "type": "outcome",
+      "amount": 100,
+      "category": 2,
+      "date": "Sun Mar 03 2019",
+      "description": "тест",
+      "id": 10
     }
   ]
 }

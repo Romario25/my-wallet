@@ -23,7 +23,11 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
 
     this.form = new FormGroup({
-       "email" : new FormControl(null, [Validators.required, Validators.email]),
+       "email" : new FormControl(
+           null,
+           [Validators.required, Validators.email],
+           this.forbiddenEmail.bind(this)
+       ),
        "password" : new FormControl(null, [Validators.required, Validators.minLength(6)]),
        "name" : new FormControl(null, [Validators.required]),
        "agree" : new FormControl(false, [Validators.requiredTrue])
@@ -38,6 +42,20 @@ export class RegistrationComponent implements OnInit {
     this.userService.createUser({email: email, passsword: password, name: name}).subscribe((user: User) => {
       console.log(user);
       this.router.navigate(['/login'], {queryParams: { canLogin: true }});
+    });
+  }
+
+  forbiddenEmail(controle: FormControl): Promise<any> {
+    return new Promise((resolve, reject) => {
+        this.userService.getUserByEmail(controle.value).subscribe((user: User) => {
+           console.log(user);
+           if (user[0] ) {
+             resolve({forbiddenEmail: true});
+           } else {
+             resolve(null);
+           }
+
+      });
     });
   }
 

@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
       private userService: UsersServices,
       private authService: AuthServices,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      private router: Router
   ) {  }
 
   ngOnInit() {
@@ -59,7 +60,7 @@ export class LoginComponent implements OnInit {
             window.localStorage.setItem('user', JSON.stringify(user[0]));
             this.message.text = '';
 
-            //this.router.navigate(['/']);
+            this.router.navigate(['/system', 'bill']);
         } else {
 
             this.showMessage({text: 'Пароль неверный', type: 'danger'});

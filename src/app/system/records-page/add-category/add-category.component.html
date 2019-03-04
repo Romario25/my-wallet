@@ -1,0 +1,65 @@
+<div class="col-md-6">
+  <div class="card">
+    <div class="card-header bordered">
+      <div class="header-block">
+        <h3 class="title">Добавить категорию</h3>
+      </div>
+    </div>
+    <div
+            class="alert alert-{{ message.type }}"
+            *ngIf="message.text"
+    >
+      {{ message.text }}
+    </div>
+    <div class="card-block">
+      <form [formGroup]="formAddCategory"  (ngSubmit)="onAddCategory()" >
+        <div class="form-group" [ngClass]="{'has_error':formAddCategory.get('category_name').invalid && formAddCategory.get('category_name').touched}">
+          <label class="control-label" for="category-name">Введите название</label>
+          <input
+                  type="text"
+                  id="category-name"
+                  class="form-control"
+                  [formControlName]= "'category_name'"
+          >
+          <span
+                  class="form-help-text"
+                  *ngIf="formAddCategory.get('category_name').invalid && formAddCategory.get('category_name').touched"
+          >
+          <span *ngIf="formAddCategory.get('category_name')['errors']['required']">
+            Category не может быть пустым
+          </span>
+
+        </span>
+        </div>
+        <div class="form-group" [ngClass]="{'has_error':formAddCategory.get('capacity').invalid && formAddCategory.get('capacity').touched}">
+          <label class="control-label" for="category-value">Введите лимит</label>
+          <input
+                  type="number"
+                  value="0"
+                  id="category-value"
+                  class="form-control"
+                  [formControlName]= "'capacity'"
+          >
+          <span
+                  class="form-help-text"
+                  *ngIf="formAddCategory.get('capacity').invalid && formAddCategory.get('capacity').touched"
+          >
+          <span *ngIf="formAddCategory.get('capacity')['errors']['required']">
+            Capacity не может быть пустым
+          </span>
+          <span *ngIf="formAddCategory.get('capacity')['errors']['min']">
+            Capacity не может быть меньше 1
+          </span>
+        </span>
+        </div>
+        <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="formAddCategory.invalid"
+        >
+          Добавить
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

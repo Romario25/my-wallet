@@ -1,0 +1,44 @@
+<div class="col-md-6">
+  <div class="card">
+    <div class="card-header bordered">
+      <div class="header-block">
+        <h3 class="title">Добавить событие</h3>
+      </div>
+    </div>
+    <div *ngIf="message.text" class="alert alert-{{ message.type }}">{{ message.text }}</div>
+    <div class="card-block">
+      <form [formGroup]="addEventForm" (ngSubmit)="onAddEvent()">
+        <div class="form-group">
+          <label class="control-label" for="category">Выберите категорию</label>
+          <select
+                  class="form-control"
+                  id="category"
+                  [formControlName]="'category'"
+          >
+            <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Выберите тип</label>
+          <div *ngFor="let t of types">
+            <label>
+              <input class="radio" name="type" type="radio" [value]="t.value" [formControlName]="'type'">
+              <span>{{ t.name }}</span>
+            </label>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="amount">Введите сумму</label>
+          <input type="number" value="1" id="amount" class="form-control" [formControlName]="'amount'" >
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="amount">Введите описание</label>
+          <input type="text" value="" id="description" class="form-control" [formControlName]="'description'" >
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="addEventForm.invalid" >Добавить</button>
+      </form>
+    </div>
+  </div>
+</div>
