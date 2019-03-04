@@ -19,4 +19,8 @@ export class EventService extends BaseApi{
         return this.get('/events');
     }
 
+    getEventById(id: string) {
+        return this.get(`/events/${id}`);
+    }
+
 }

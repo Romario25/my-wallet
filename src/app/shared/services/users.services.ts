@@ -13,10 +13,10 @@ export class UsersServices extends BaseApi{
      }
 
      getUserByEmail(email: string): Observable<User> {
-         return this.get(`http://localhost:3000/users?email=${email}`);
+         return this.get(`/users?email=${email}`);
      }
 
      createUser(user: User): Observable<User> {
-         return this.post('http://localhost:3000/users', user);
+         return this.post('/users', user);
      }
 }

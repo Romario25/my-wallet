@@ -18,9 +18,16 @@ import { EditCategoryComponent } from './records-page/edit-category/edit-categor
 import { AddEventComponent } from './records-page/add-event/add-event.component';
 import {CategoryService} from './shared/services/category.service';
 import {EventService} from './shared/services/event.service';
+import { HistoryChartComponent } from './history-page/history-chart/history-chart.component';
+import { HistoryEventsComponent } from './history-page/history-events/history-events.component';
+import { HistoryDetailComponent } from './history-page/history-detail/history-detail.component';
+import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {FilterPipe} from './shared/pipes/filter.pipe';
 
 @NgModule({
-    imports: [CommonModule, SharedModule, SystemRoutingModule],
+    imports: [CommonModule, SharedModule, SystemRoutingModule, BrowserAnimationsModule, NgxChartsModule],
     exports: [],
     declarations: [
         SystemComponent,
@@ -36,7 +43,12 @@ import {EventService} from './shared/services/event.service';
         AddCategoryComponent,
         EditCategoryComponent,
         AddEventComponent,
-        RecordsPageComponent
+        RecordsPageComponent,
+        HistoryChartComponent,
+        HistoryEventsComponent,
+        HistoryDetailComponent,
+        HistoryFilterComponent,
+        FilterPipe
     ],
     providers: [BillServices, CategoryService, EventService]
 })
