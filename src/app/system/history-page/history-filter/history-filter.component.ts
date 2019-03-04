@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Category} from '../../shared/models/category';
+import {AppEvent} from '../../shared/models/app-event';
 
 @Component({
   selector: 'app-history-filter',
@@ -9,7 +11,22 @@ export class HistoryFilterComponent implements OnInit {
 
   constructor() { }
 
+  @Input() categories: Category[] = [];
+  types = [
+    {label: 'Доход', value: 'income'},
+    {label: 'Расход', value: 'outcome'},
+  ];
+  @Output() cWindow = new EventEmitter();
+
   ngOnInit() {
+  }
+
+  cancelWindows() {
+    this.cWindow.emit();
+  }
+
+  applyFilter() {
+
   }
 
 }
