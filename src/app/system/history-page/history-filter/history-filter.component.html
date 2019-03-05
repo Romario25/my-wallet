@@ -19,6 +19,7 @@
                       class="checkbox"
                       type="checkbox"
                       [value]="t.value"
+                      (change)="handleChangeType($event.target)"
               >
               <span>{{ t.label }}</span>
             </label>
@@ -32,6 +33,7 @@
                       class="checkbox"
                       type="checkbox"
                       [value]="c.id"
+                      (change)="handleChangeCategory($event.target)"
               >
               <span>{{ c.name }}</span>
             </label>

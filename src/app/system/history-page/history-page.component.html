@@ -15,13 +15,17 @@
  <div *ngIf="isLoaded">
      <app-history-chart [data]="chartData" ></app-history-chart>
 
-     <app-history-events [categories]="categories" [events]="events"></app-history-events>
+     <app-history-events [categories]="categories" [events]="filteredEvents"></app-history-events>
 
 
 
      <div *ngIf="isFilterVisible">
      <!--MODAL-->
-        <app-history-filter [categories]="categories" (cWindow)="cancelFilter()" ></app-history-filter>
+        <app-history-filter
+                [categories]="categories"
+                (cWindowCancel)="cancelFilter()"
+                (cWindowApply)="applyFilter($event)"
+        ></app-history-filter>
      <!--MODAL-->
      </div>
 

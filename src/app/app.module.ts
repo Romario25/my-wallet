@@ -5,22 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AuthModule} from './auth/auth.module';
 import {HttpClientModule} from '@angular/common/http';
-import {SystemModule} from './system/system.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AuthGuard} from './shared/services/auth.guard';
+import {NotFoundComponent} from './shared/not-found/not-found.component';
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, NotFoundComponent
   ],
   imports: [
       BrowserModule,
       AppRoutingModule,
       AuthModule,
-      SystemModule,
       HttpClientModule,
+      BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

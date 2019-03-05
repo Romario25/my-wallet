@@ -19,6 +19,8 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
 
   events: AppEvent[];
 
+  filteredEvents = [];
+
   chartData = [];
 
   s1: Subscription;
@@ -32,7 +34,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
         .subscribe((data: [Category[], AppEvent[]]) => {
       this.categories = data[0];
       this.events = data[1];
-
+      this.setOriginalEvents();
       this.calculateChartData();
 
       this.isLoaded = true;
@@ -43,7 +45,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
         this.chartData = [];
 
         this.categories.forEach((cat) => {
-            const catEvent = this.events.filter((e) => e.category === cat.id && e.type === 'outcome');
+            const catEvent = this.filteredEvents.filter((e) => e.category === cat.id && e.type === 'outcome');
             this.chartData.push({
                 name: cat.name,
                 value: catEvent.reduce((total, e) => {
@@ -67,6 +69,21 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
       this.toggleFilterVisible(false);
     }
 
+    applyFilter(data) {
+      console.log(data);
+      this.setOriginalEvents();
+
+      this.filteredEvents = this.filteredEvents.filter((e) => {
+          return (data.types.length > 0) ? data.types.indexOf(e.type) !== -1 : true;
+      }).filter((e) => {
+          return (data.categories.length > 0) ? data.categories.indexOf(e.category.toString()) !== -1 : true;
+      });
+
+      this.calculateChartData();
+
+      this.toggleFilterVisible(false);
+    }
+
 
     ngOnDestroy(): void {
 
@@ -74,5 +91,10 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
           this.s1.unsubscribe();
       }
     }
+
+    setOriginalEvents() {
+      this.filteredEvents = this.events.slice();
+    }
+
 
 }

@@ -22,12 +22,12 @@ import { HistoryChartComponent } from './history-page/history-chart/history-char
 import { HistoryEventsComponent } from './history-page/history-events/history-events.component';
 import { HistoryDetailComponent } from './history-page/history-detail/history-detail.component';
 import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {FilterPipe} from './shared/pipes/filter.pipe';
 
 @NgModule({
-    imports: [CommonModule, SharedModule, SystemRoutingModule, BrowserAnimationsModule, NgxChartsModule],
+    imports: [CommonModule, SharedModule, SystemRoutingModule, NgxChartsModule],
     exports: [],
     declarations: [
         SystemComponent,
